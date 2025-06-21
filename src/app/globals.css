@@ -26,6 +26,10 @@ body {
   font-family: var(--font-figtree), Arial, Helvetica, sans-serif;
 }
 
+.testimonialSectionFont{
+  font-family: var(--font-lexend), Arial, Helvetica, sans-serif;;
+}
+
 body::-webkit-scrollbar {
   display: none;  
 }

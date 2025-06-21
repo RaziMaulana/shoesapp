@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google"; // Ganti ke Bungee
+import { Figtree, Lexend } from "next/font/google";
+
 import "./globals.css";
 
 // Import font Bungee
 const figtree = Figtree({
   variable: "--font-figtree", // Variabel CSS
+  subsets: ["latin"],
+});
+
+const lexend = Lexend({
+  variable: "--font-lexend", // Variabel CSS
   subsets: ["latin"],
 });
 
@@ -20,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${figtree.variable} antialiased`} style={{backgroundColor: "#222222", }}>
+      <body className={`${figtree.variable} ${lexend.variable} antialiased`} style={{ backgroundColor: "#222222", }}>
         {children}
       </body>
     </html>
