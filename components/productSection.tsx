@@ -134,7 +134,7 @@ export default function Product() {
       </div>
 
       {/* Produk List */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 pb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 pb-6">
         {/* Card 1 */}
         <div 
           className={`bg-[#222222] rounded-xl overflow-hidden transition-all duration-1000 ease-out ${
