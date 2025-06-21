@@ -3,6 +3,7 @@ import Hero from "../../components/heroSection";
 import Product from "../../components/productSection";
 import Partner from "../../components/partnerSection";
 import Testimonial from "../../components/testimonialSection";
+import Closing from "../../components/closingSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Product />
       <Partner />
       <Testimonial />
+      <Closing />
     </div>
   );
 }
