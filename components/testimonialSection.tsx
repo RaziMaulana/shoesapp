@@ -66,7 +66,7 @@ export default function Testimonial() {
           ? 'opacity-100 translate-y-0' 
           : 'opacity-0 -translate-y-10'
       }`}>
-        Testimonial
+        Comment
       </h1>
 
       {/* Grid Foto Testimoni dengan animasi staggered */}
