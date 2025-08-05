@@ -17,8 +17,8 @@ export default function Home() {
     <div>
       <Navbar />
       <Hero />
-      {/* <Product />
-      <Partner />
+      <Product />
+      {/* <Partner />
       <Testimonial />
       <Closing />
       <Footer /> */}
