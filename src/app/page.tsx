@@ -16,12 +16,12 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <Hero />
+      {/* <Hero />
       <Product />
       <Partner />
       <Testimonial />
       <Closing />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
