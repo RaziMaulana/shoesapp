@@ -1,55 +1,50 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { motion, Variants } from "framer-motion";
 import AppLogo from "../assets/images/AppLogo.png";
 
+// Definisikan variants untuk animasi utama (container footer)
+const footerVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      when: "beforeChildren",
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+// Definisikan variants untuk elemen anak (logo, teks, dan navigasi)
+const childVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function Footer() {
-  const footerRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      {
-        threshold: 0.2, // Trigger when 20% of footer is visible
-        rootMargin: '0px 0px -50px 0px' // Trigger slightly before footer fully enters viewport
-      }
-    );
-
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
-    }
-
-    return () => {
-      if (footerRef.current) {
-        observer.unobserve(footerRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <footer 
-      ref={footerRef}
-      className={`bg-[#2D2E30] text-white py-5 px-4 flex flex-col items-center space-y-6 transition-all duration-1000 ease-out ${
-        isVisible 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-10'
-      }`}
+    <motion.footer
+      className="bg-[#2D2E30] text-white mt-6 py-5 px-4 flex flex-col items-center space-y-6"
+      variants={footerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
     >
       {/* Logo dan Brand */}
-      <div 
-        className={`flex flex-col items-center space-y-2 transition-all duration-1000 delay-300 ease-out ${
-          isVisible 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-8'
-        }`}
+      <motion.div
+        className="flex flex-col items-center space-y-2"
+        variants={childVariants}
       >
         <Image
           src={AppLogo}
@@ -60,29 +55,38 @@ export default function Footer() {
         <p className="text-sm text-gray-300 tracking-wider">
           Find The Best Fit With The Best Quality
         </p>
-      </div>
+      </motion.div>
 
       {/* Navigasi */}
-      <div 
-        className={`flex flex-wrap justify-center gap-6 text-sm md:text-base font-semibold tracking-widest transition-all duration-1000 delay-500 ease-out ${
-          isVisible 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 translate-y-6'
-        }`}
+      <motion.div
+        className="flex flex-wrap justify-center gap-6 text-sm md:text-base font-semibold tracking-widest"
+        variants={childVariants}
       >
-        <a href="#home" className="hover:underline transform hover:scale-105 transition-transform duration-200">
+        <a
+          href="#home"
+          className="hover:underline transform hover:scale-105 transition-transform duration-200"
+        >
           HOME
         </a>
-        <a href="#product" className="hover:underline transform hover:scale-105 transition-transform duration-200">
+        <a
+          href="#product"
+          className="hover:underline transform hover:scale-105 transition-transform duration-200"
+        >
           PRODUCT
         </a>
-        <a href="#partner" className="hover:underline transform hover:scale-105 transition-transform duration-200">
+        <a
+          href="#partner"
+          className="hover:underline transform hover:scale-105 transition-transform duration-200"
+        >
           PARTNER
         </a>
-        <a href="#comment" className="hover:underline transform hover:scale-105 transition-transform duration-200">
+        <a
+          href="#comment"
+          className="hover:underline transform hover:scale-105 transition-transform duration-200"
+        >
           COMMENT
         </a>
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 }

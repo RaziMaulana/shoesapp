@@ -60,6 +60,7 @@ export default function Partner() {
   return (
     <motion.div
       className="py-16 px-6 flex flex-col items-center"
+      id="partner"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

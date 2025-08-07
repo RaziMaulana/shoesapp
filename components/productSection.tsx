@@ -504,6 +504,7 @@ export default function ProductComponent() {
   return (
     <motion.div
       className="w-full rounded-xl bg-[#2D2E30] px-4 py-6 md:p-8 lg:p-12"
+      id="product"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"

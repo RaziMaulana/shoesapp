@@ -74,6 +74,7 @@ export default function Testimonial() {
   return (
     <motion.div
       className="max-w-7xl mx-auto px-4 py-12 lg:px-6 bg-[#1F1F1F] rounded-xl"
+      id="comment"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
