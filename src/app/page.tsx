@@ -20,8 +20,8 @@ export default function Home() {
       <Product />
       <Partner />
       <Testimonial />
-      {/* <Closing />
-      <Footer /> */}
+      <Closing />
+      {/* <Footer /> */}
     </div>
   );
 }
