@@ -18,8 +18,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Product />
-      {/* <Partner />
-      <Testimonial />
+      <Partner />
+      {/* <Testimonial />
       <Closing />
       <Footer /> */}
     </div>

@@ -7,17 +7,17 @@ import ProductImage1 from "../assets/images/ProductsImage1.png";
 import ProductImage2 from "../assets/images/ProductsImage2.png";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 
-// --- Variants untuk Animasi ---
+// --- Variants untuk Animasi yang Lebih Cepat ---
 const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.5, // Durasi dipercepat dari 0.8 menjadi 0.5
       ease: "easeOut",
       when: "beforeChildren",
-      staggerChildren: 0.2,
+      staggerChildren: 0.1, // Stagger dipercepat dari 0.2 menjadi 0.1
     },
   },
 };
@@ -28,7 +28,7 @@ const childVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.4, // Durasi dipercepat dari 0.6 menjadi 0.4
       ease: "easeOut",
     },
   },
@@ -40,7 +40,7 @@ const cardVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.3, // Durasi dipercepat dari 0.5 menjadi 0.3
       ease: "easeOut",
     },
   },
@@ -48,7 +48,7 @@ const cardVariants: Variants = {
     opacity: 0,
     y: -20,
     transition: {
-      duration: 0.3,
+      duration: 0.2, // Durasi dipercepat dari 0.3 menjadi 0.2
       ease: "easeIn",
     },
   },
@@ -456,7 +456,7 @@ export default function ProductComponent() {
   const [selectedCategory, setSelectedCategory] = useState<string>("POPULAR");
   const [selectedDropdownFilter, setSelectedDropdownFilter] = useState<string | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null); // Perbaikan: HTMLDivData diubah menjadi HTMLDivElement
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -499,7 +499,7 @@ export default function ProductComponent() {
       }
       return product.tags.includes(selectedDropdownFilter);
     })
-    .slice(0, 2); // Mengembalikan batasan 2 card
+    .slice(0, 2);
 
   return (
     <motion.div
@@ -551,7 +551,7 @@ export default function ProductComponent() {
                     initial={{ opacity: 0, scale: 0.95, y: -10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.15 }} // Durasi dipercepat dari 0.2 menjadi 0.15
                   >
                     {options.map((option) => (
                       <button
