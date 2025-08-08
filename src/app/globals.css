@@ -33,3 +33,18 @@ body {
 body::-webkit-scrollbar {
   display: none;  
 }
+
+::-webkit-scrollbar {
+  height: 3px; /* adjust height for horizontal scrollbar */
+  width: 8px; /* adjust width for vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6B6B6B; /* The color of the scrollbar thumb */
+  border-radius: 9999px; /* This makes it pill-shaped */
+  border: 1px solid transparent;
+}

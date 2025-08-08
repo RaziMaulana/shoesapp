@@ -36,6 +36,13 @@ const imageVariants: Variants = {
 };
 
 export default function Hero() {
+  const handleScrollToProduct = () => {
+    const productSection = document.getElementById("product");
+    if (productSection) {
+      productSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="text-white" id="home">
       <motion.div
@@ -56,8 +63,9 @@ export default function Hero() {
           </motion.h1>
 
           <motion.button
-            className="px-8 py-3 text-white border border-white rounded-lg tracking-widest shadow-[8px_8px_10px_rgba(255,255,255,0.5)] hover:bg-white hover:text-black hover:border-black transition-all duration-300"
+            className="px-8 py-3 text-white cursor-pointer border border-white rounded-lg tracking-widest shadow-[8px_8px_10px_rgba(255,255,255,0.5)] hover:bg-white hover:text-black hover:border-black transition-all duration-300 active:bg-white active:text-black active:border-black"
             variants={buttonVariants}
+            onClick={handleScrollToProduct}
           >
             EXPLORE
           </motion.button>

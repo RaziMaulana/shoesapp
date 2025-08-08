@@ -13,6 +13,17 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      setIsMenuOpen(false); // Tutup menu mobile setelah klik
+    }
+  };
+
   const navVariants: Variants = {
     hidden: { y: -100, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
@@ -62,7 +73,6 @@ const Navbar: React.FC = () => {
   };
 
   const menuItems: string[] = ["HOME", "PRODUCT", "PARTNER", "COMMENT"];
-  const mobileMenuItems: string[] = ["Home", "Product", "Partner", "Comment"];
 
   return (
     <motion.nav
@@ -81,7 +91,7 @@ const Navbar: React.FC = () => {
               alt="Logo"
               width={120}
               height={40}
-              className="h-auto w-20 sm:w-24 md:w-28 lg:w-30" // Responsive width classes
+              className="h-auto w-20 sm:w-24 md:w-28 lg:w-30"
               priority
             />
           </motion.div>
@@ -91,7 +101,11 @@ const Navbar: React.FC = () => {
             {menuItems.map((item: string, index: number) => (
               <motion.a
                 key={item}
-                href="#"
+                href={`#${item.toLowerCase()}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.toLowerCase());
+                }}
                 className="text-white hover:text-black transition-colors duration-200 py-2 px-3 rounded-md hover:bg-white"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -142,12 +156,15 @@ const Navbar: React.FC = () => {
           style={{ overflow: "hidden" }}
         >
           <div className="px-2 pt-4 pb-3 space-y-1 border-t border-gray-700 mt-2">
-            {mobileMenuItems.map((item: string) => (
+            {menuItems.map((item: string) => (
               <motion.a
                 key={item}
-                href="#"
+                href={`#${item.toLowerCase()}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.toLowerCase());
+                }}
                 className="text-white hover:text-blue-400 hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 hover:translate-x-2"
-                onClick={() => setIsMenuOpen(false)}
                 variants={mobileMenuItemVariants}
               >
                 {item}

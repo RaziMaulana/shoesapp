@@ -81,11 +81,19 @@ export default function Testimonial() {
       viewport={{ once: true, amount: 0.3 }}
     >
       <motion.h1
-        className="text-white text-center text-4xl lg:text-5xl font-bold uppercase tracking-widest mb-10 lg:mb-12"
+        className="text-white text-center text-4xl lg:text-5xl font-bold uppercase tracking-widest mb-2"
         variants={fadeInVariants} // Menggunakan varian fade-in
       >
         Comment
       </motion.h1>
+
+      {/* Tambahkan elemen teks instruksi di bawah judul */}
+      <motion.p 
+        className="text-white text-center text-sm lg:text-base opacity-70 mb-10 lg:mb-12"
+        variants={fadeInVariants}
+      >
+        Hover Or Click One of the card to see the detail
+      </motion.p>
 
       <motion.div
         className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory md:gap-8 lg:grid lg:grid-cols-3 lg:gap-8 scrollbar-hide"

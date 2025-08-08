@@ -84,6 +84,14 @@ export default function Closing() {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  // Fungsi untuk scroll ke section 'product'
+  const handleScrollToProduct = () => {
+    const productSection = document.getElementById("product");
+    if (productSection) {
+      productSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <motion.div
       className="max-w-7xl mx-auto p-4 md:p-8 lg:p-16 flex flex-col md:flex-row items-center justify-between gap-10 lg:gap-20 rounded-xl"
@@ -103,8 +111,9 @@ export default function Closing() {
           Right Fit <br /> For <br /> The Right Job
         </motion.h1>
         <motion.button
-          className="px-8 py-3 text-white border border-white rounded-lg tracking-widest shadow-[8px_8px_10px_rgba(255,255,255,0.5)] hover:bg-white hover:text-black hover:border-black transition-all duration-300 transform"
+          className="px-8 py-3 text-white cursor-pointer border border-white rounded-lg tracking-widest shadow-[8px_8px_10px_rgba(255,255,255,0.5)] hover:bg-white hover:text-black hover:border-black transition-all duration-300 transform active:bg-white active:text-black active:border-black"
           variants={childVariants}
+          onClick={handleScrollToProduct} // Event handler ditambahkan di sini
         >
           SHOP NOW
         </motion.button>
